@@ -14,9 +14,9 @@ stream: IETF
 pi: [toc, sortrefs, symrefs, compact, comments]
 
 venue:
-  mail: cbor@ietf.org
-  github: cbor-wg/edn-e-ref
-  latest: "https://cbor-wg.github.io/edn-e-ref/"
+  mail: "cbor@ietf.org"
+  github: "cbor-wg/edn-e-ref"
+  latest: "https://cbor-wg.github.io/edn-e-ref/draft-ietf-cbor-edn-e-ref.html"
 
 author:
   -
