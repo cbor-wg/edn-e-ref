@@ -168,7 +168,7 @@ be installed as:
      gem install cbor-diag-e cddlc
 
 (`cbor-diag-e` uses `cddlc` {{cddlc}} internally, so it must be in PATH.)
-The provided 
+The provided
 
 Use of this extension has two prerequisites:
 
