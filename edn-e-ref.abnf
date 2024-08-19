@@ -1,0 +1,55 @@
+known-app-str   =/ e / ref
+
+; app-string-e
+e = %s"e" SQUOTE inside-e SQUOTE
+inside-e = EALPHA *(*("-" / ".") (EALPHA / DIGIT))
+EALPHA = ALPHA / "@" / "_" / "$"
+
+; app-string-ref
+ref = %s"ref" SQUOTE inside-ref SQUOTE
+inside-ref    = URI-reference
+URI-reference = URI / relative-ref
+URI           = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
+hier-part     = "//" authority path-abempty
+                 / path-absolute
+                 / path-rootless
+                 / path-empty
+
+relative-ref  = relative-part [ "?" query ] [ "#" fragment ]
+relative-part = "//" authority path-abempty
+                 / path-absolute
+                 / path-noscheme
+                 / path-empty
+
+scheme        = ALPHA *( ALPHA / DIGIT / "+" / "-" / "." )
+authority     = [ userinfo "@" ] host [ ":" port ]
+userinfo      = *( unreserved / pct-encoded / sub-delims / ":" )
+host          = IP-literal / IPv4address / reg-name
+port          = *DIGIT
+IP-literal    = "[" ( IPv6address / IPv6addrz / IPvFuture  ) "]"
+IPv6addrz     = IPv6address "%25" ZoneID
+ZoneID        = 1*( unreserved / pct-encoded )
+IPvFuture     = "v" 1*HEXDIG "." 1*( unreserved / sub-delims / ":" )
+
+reg-name      = *( unreserved / pct-encoded / sub-delims )
+
+path-abempty  = *( "/" segment )
+path-absolute = "/" [ segment-nz *( "/" segment ) ]
+path-noscheme = segment-nz-nc *( "/" segment )
+path-rootless = segment-nz *( "/" segment )
+path-empty    = 0<pchar>
+
+segment       = *pchar
+segment-nz    = 1*pchar
+segment-nz-nc = 1*( unreserved / pct-encoded / sub-delims / "@" )
+                 ; non-zero-length segment without any colon ":"
+
+pchar         = unreserved / pct-encoded / sub-delims / ":" / "@"
+query         = *( pchar / "/" / "?" )
+fragment      = *( pchar / "/" / "?" )
+
+pct-encoded   = "%" HEXDIG HEXDIG
+unreserved    = ALPHA / DIGIT / "-" / "." / "_" / "~"
+sub-delims    = "!" / "$" / "&" / "(" / ")" ; single-quote not included
+                    / "*" / "+" / "," / ";" / "="
+
