@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-08-18T01:39:00.122315+00:00",
+  "timestamp": "2024-08-20T01:33:58.403380+00:00",
   "repo": "cbor-wg/edn-e-ref",
   "labels": [
     {
@@ -49,6 +49,58 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
-  "pulls": []
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOMO9Nss6TcuAw",
+      "title": "Both app-strings are missing ABNF",
+      "url": "https://github.com/cbor-wg/edn-e-ref/issues/1",
+      "state": "OPEN",
+      "author": "rohanmahy",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "This document defines new app strings but defines no syntax for those app-strings.\r\n\r\nIf the single-layer ABNF approach is defined in draft-ietf-cbor-edn-literals as proposed in [EDN literals PR#49](https://github.com/cbor-wg/edn-literal/pull/49), the following ABNF should do the trick. It is copied from RFC 3986 with the following changes:\r\n- allow RFC 6874 zone IDs in IP URI literals\r\n- remove single quote from sub-delims (they can be included almost anywhere when percent encoded)\r\n- make the contents of the app-string use URI-reference (either a complete URI or a relative reference)\r\n- remove roughly half a dozen completely unused productions\r\n\r\nWhen appended to the ABNF in [EDN literals PR#49](https://github.com/cbor-wg/edn-literal/pull/49), this runs through `bap -o RFC7405` without errors or warnings.\r\n\r\n```\r\nknown-app-str   =/ e / ref\r\n\r\n; app-string-e\r\ne = %s\"e\" SQUOTE inside-e SQUOTE\r\ninside-e = EALPHA *(*(\"-\" / \".\") (EALPHA / DIGIT))\r\nEALPHA = ALPHA / \"@\" / \"_\" / \"$\"\r\n\r\n; app-string-ref\r\nref = %s\"ref\" SQUOTE inside-ref SQUOTE\r\ninside-ref    = URI-reference\r\nURI-reference = URI / relative-ref\r\nURI           = scheme \":\" hier-part [ \"?\" query ] [ \"#\" fragment ]\r\nhier-part     = \"//\" authority path-abempty\r\n                 / path-absolute\r\n                 / path-rootless\r\n                 / path-empty\r\n\r\nrelative-ref  = relative-part [ \"?\" query ] [ \"#\" fragment ]\r\nrelative-part = \"//\" authority path-abempty\r\n                 / path-absolute\r\n                 / path-noscheme\r\n                 / path-empty\r\n\r\nscheme        = ALPHA *( ALPHA / DIGIT / \"+\" / \"-\" / \".\" )\r\nauthority     = [ userinfo \"@\" ] host [ \":\" port ]\r\nuserinfo      = *( unreserved / pct-encoded / sub-delims / \":\" )\r\nhost          = IP-literal / IPv4address / reg-name\r\nport          = *DIGIT\r\nIP-literal    = \"[\" ( IPv6address / IPv6addrz / IPvFuture  ) \"]\"\r\nIPv6addrz     = IPv6address \"%25\" ZoneID\r\nZoneID        = 1*( unreserved / pct-encoded )\r\nIPvFuture     = \"v\" 1*HEXDIG \".\" 1*( unreserved / sub-delims / \":\" )\r\n\r\nreg-name      = *( unreserved / pct-encoded / sub-delims )\r\n\r\npath-abempty  = *( \"/\" segment )\r\npath-absolute = \"/\" [ segment-nz *( \"/\" segment ) ]\r\npath-noscheme = segment-nz-nc *( \"/\" segment )\r\npath-rootless = segment-nz *( \"/\" segment )\r\npath-empty    = 0<pchar>\r\n\r\nsegment       = *pchar\r\nsegment-nz    = 1*pchar\r\nsegment-nz-nc = 1*( unreserved / pct-encoded / sub-delims / \"@\" )\r\n                 ; non-zero-length segment without any colon \":\"\r\n\r\npchar         = unreserved / pct-encoded / sub-delims / \":\" / \"@\"\r\nquery         = *( pchar / \"/\" / \"?\" )\r\nfragment      = *( pchar / \"/\" / \"?\" )\r\n\r\npct-encoded   = \"%\" HEXDIG HEXDIG\r\nunreserved    = ALPHA / DIGIT / \"-\" / \".\" / \"_\" / \"~\"\r\nsub-delims    = \"!\" / \"$\" / \"&\" / \"(\" / \")\" ; single-quote not included\r\n                    / \"*\" / \"+\" / \",\" / \";\" / \"=\"\r\n```",
+      "createdAt": "2024-08-19T16:48:14Z",
+      "updatedAt": "2024-08-19T17:05:02Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "cabo",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> This document defines new app strings but defines no syntax for those app-strings.\r\n\r\nIndeed, I thought we might first agree on the details of what is in there before putting in a lot of grammar.\r\nSee Section 5.\r\n",
+          "createdAt": "2024-08-19T17:05:01Z",
+          "updatedAt": "2024-08-19T17:05:01Z"
+        }
+      ]
+    }
+  ],
+  "pulls": [
+    {
+      "number": 2,
+      "id": "PR_kwDOMO9Nss54xj21",
+      "title": "add ABNF productions for app-strings e and ref, and extend known-app-str",
+      "url": "https://github.com/cbor-wg/edn-e-ref/pull/2",
+      "state": "OPEN",
+      "author": "rohanmahy",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Would resolve Issue #1 . \r\n\r\nDepends on single-layer ABNF in [edn-literals PR#49](https://github.com/cbor-wg/edn-literal/pull/49).\r\n\r\n",
+      "createdAt": "2024-08-19T19:42:36Z",
+      "updatedAt": "2024-08-19T19:42:36Z",
+      "baseRepository": "cbor-wg/edn-e-ref",
+      "baseRefName": "main",
+      "baseRefOid": "e96868dbdd4b870cfce3fb399952b6c1bbc444e7",
+      "headRepository": "rohanmahy/edn-e-ref",
+      "headRefName": "abnf",
+      "headRefOid": "1ab485d7f85521c9046048574c661a6224baa827",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
