@@ -4,8 +4,8 @@
 
 Network Working Group                                         C. Bormann
 Internet-Draft                                    Universität Bremen TZI
-Intended status: Informational                              27 June 2024
-Expires: 29 December 2024
+Intended status: Informational                          29 December 2024
+Expires: 2 July 2025
 
 
     External References to Values in CBOR Diagnostic Notation (EDN)
@@ -65,7 +65,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 29 December 2024.
+   This Internet-Draft will expire on 2 July 2025.
 
 Copyright Notice
 
@@ -163,12 +163,13 @@ Solution
    construct need to be constant values.
 
    Using the CDDL model in Figure 2, the example in Figure 1 can be
-   notated as:
+   notated as (example derived from Section 6.2-9 of
+   [I-D.ietf-ace-oscore-gm-admin]):
 
    {
        e'group_mode' : true,
-       e'gp_enc_alg' : e'HMAC-256-256',
-             e'hkdf' : e'AES-CCM-16-64-128'
+       e'gp_enc_alg' : e'AES-CCM-16-64-128',
+             e'hkdf' : e'HMAC-256-256'
    }
 
       Figure 3: Example updated to use e'constantname' for registered
@@ -294,8 +295,8 @@ Implementation
    This section is to be removed before publishing as an RFC.
 
    The ref'' application extension is now implemented in the cbor-diag
-   tools [cbor-diag], by the cbor-diag-ref gem, which can be installed
-   as:
+   tools [cbor-diag], by the cbor-diag-ref gem [cbor-diag-ref], which
+   can be installed as:
 
     gem install cbor-diag-ref
 
@@ -368,11 +369,11 @@ Provisional use
 6.1.  Normative References
 
    [I-D.ietf-cbor-edn-literals]
-              Bormann, C., "CBOR Extended Diagnostic Notation (EDN):
-              Application-Oriented Literals, ABNF, and Media Type", Work
-              in Progress, Internet-Draft, draft-ietf-cbor-edn-literals-
-              09, 18 May 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-cbor-edn-literals-09>.
+              Bormann, C., "CBOR Extended Diagnostic Notation (EDN)",
+              Work in Progress, Internet-Draft, draft-ietf-cbor-edn-
+              literals-14, 9 December 2024,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-cbor-
+              edn-literals-14>.
 
    [RFC8610]  Birkholz, H., Vigano, C., and C. Bormann, "Concise Data
               Definition Language (CDDL): A Notational Convention to
@@ -403,18 +404,26 @@ Provisional use
               <https://github.com/cabo/cddlc>.
 
    [I-D.bormann-cbor-draft-numbers]
-              Bormann, C., "Managing CBOR numbers in Internet-Drafts",
-              Work in Progress, Internet-Draft, draft-bormann-cbor-
-              draft-numbers-03, 29 February 2024,
+              Bormann, C., "Managing CBOR codepoints in Internet-
+              Drafts", Work in Progress, Internet-Draft, draft-bormann-
+              cbor-draft-numbers-04, 29 August 2024,
               <https://datatracker.ietf.org/doc/html/draft-bormann-cbor-
-              draft-numbers-03>.
+              draft-numbers-04>.
 
    [I-D.bormann-t2trg-deref-id]
               Bormann, C. and C. Amsüss, "The "dereferenceable
               identifier" pattern", Work in Progress, Internet-Draft,
-              draft-bormann-t2trg-deref-id-03, 2 March 2024,
+              draft-bormann-t2trg-deref-id-04, 1 September 2024,
               <https://datatracker.ietf.org/doc/html/draft-bormann-
-              t2trg-deref-id-03>.
+              t2trg-deref-id-04>.
+
+   [I-D.ietf-ace-oscore-gm-admin]
+              Tiloca, M., Höglund, R., Van der Stok, P., and F.
+              Palombini, "Admin Interface for the OSCORE Group Manager",
+              Work in Progress, Internet-Draft, draft-ietf-ace-oscore-
+              gm-admin-12, 8 July 2024,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-ace-
+              oscore-gm-admin-12>.
 
 Acknowledgements
 
