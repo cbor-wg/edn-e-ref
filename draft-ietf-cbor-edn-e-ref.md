@@ -5,9 +5,10 @@ title: >
   External References to Values in CBOR Diagnostic Notation (EDN)
 abbrev: EDN external references
 docname: draft-ietf-cbor-edn-e-ref-latest
-date: 2024-06-27
+date: 2024-12-29
 keyword:
   - CBOR numbers
+  - References to CDDL numbers
 cat: info
 stream: IETF
 
@@ -45,6 +46,7 @@ informative:
   cbor-diag-e:
     title: CBOR diagnostic extension e''
     target: https://github.com/cabo/cbor-diag-e
+  I-D.ietf-ace-oscore-gm-admin: gm-admin
   cbor-diag-ref:
     title: CBOR diagnostic extension ref''
     target: https://github.com/cabo/cbor-diag-ref
@@ -140,15 +142,20 @@ Note that such a model can have other, unrelated CDDL rules that
 define more complex data items; only the ones used in an `e''`
 construct need to be constant values.
 
-Using the CDDL model in {{fig-cddl}}, the example in {{fig-incorrect}} can be notated as:
+Using the CDDL model in {{fig-cddl}}, the example in {{fig-incorrect}} can
+be notated as (example derived from {{Section 6.2-9 of -gm-admin}}):
 
      {
          e'group_mode' : true,
-         e'gp_enc_alg' : e'HMAC-256-256',
-               e'hkdf' : e'AES-CCM-16-64-128'
+         e'gp_enc_alg' : e'AES-CCM-16-64-128',
+               e'hkdf' : e'HMAC-256-256'
      }
 {: #fig-using-e pre="dedent"
 title="Example updated to use e'constantname' for registered constants"}
+
+<!--
+CBOR_DIAG_CDDL=sourcecode/cddl/cddl-model-defining-constan.cddl diag2diag.rb -ae
+ -->
 
 This example is equivalent to notating `{33: true, 34: 10, 31: 5}`,
 which expresses the concise 10-byte data item that will actually be
@@ -278,7 +285,7 @@ work for splicing in CBOR sequences.
 {:unnumbered removeinrfc}
 
 The `ref''` application extension is now implemented in the `cbor-diag`
-tools {{cbor-diag}}, by the `cbor-diag-ref` gem, which can be installed as:
+tools {{cbor-diag}}, by the `cbor-diag-ref` gem {{cbor-diag-ref}}, which can be installed as:
 
      gem install cbor-diag-ref
 
