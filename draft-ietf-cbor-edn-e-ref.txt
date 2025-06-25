@@ -50,6 +50,14 @@ About This Document
    Source for this draft and an issue tracker can be found at
    https://github.com/cbor-wg/edn-e-ref.
 
+
+
+
+Bormann                    Expires 2 July 2025                  [Page 1]
+
+Internet-Draft           EDN external references           December 2024
+
+
 Status of This Memo
 
    This Internet-Draft is submitted in full conformance with the
@@ -83,24 +91,32 @@ Copyright Notice
 
 Table of Contents
 
-   1.  Introduction
-   2.  The e'' application extension: importing from CDDL
-     Problem
-     Solution
-     Implementation
-     Provisional use
-   3.  The ref'' application extension: importing from EDN
-     Problem
-     Solution
-     Implementation
-     Provisional use
-   4.  IANA Considerations
-   5.  Security considerations
-   6.  References
-     6.1.  Normative References
-     6.2.  Informative References
-   Acknowledgements
-   Author's Address
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3
+   2.  The e'' application extension: importing from CDDL  . . . . .   3
+     Problem . . . . . . . . . . . . . . . . . . . . . . . . . . . .   3
+     Solution  . . . . . . . . . . . . . . . . . . . . . . . . . . .   3
+     Implementation  . . . . . . . . . . . . . . . . . . . . . . . .   4
+     Provisional use . . . . . . . . . . . . . . . . . . . . . . . .   5
+   3.  The ref'' application extension: importing from EDN . . . . .   5
+     Problem . . . . . . . . . . . . . . . . . . . . . . . . . . . .   6
+     Solution  . . . . . . . . . . . . . . . . . . . . . . . . . . .   6
+     Implementation  . . . . . . . . . . . . . . . . . . . . . . . .   7
+     Provisional use . . . . . . . . . . . . . . . . . . . . . . . .   7
+   4.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   7
+   5.  Security considerations . . . . . . . . . . . . . . . . . . .   8
+   6.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
+     6.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
+
+
+
+Bormann                    Expires 2 July 2025                  [Page 2]
+
+Internet-Draft           EDN external references           December 2024
+
+
+     6.2.  Informative References  . . . . . . . . . . . . . . . . .   9
+   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .   9
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  10
 
 1.  Introduction
 
@@ -146,6 +162,13 @@ Solution
    e'constant-name' can be used to reference a constant defined by that
    model under the name constant-name.  (Hint: memorize the e as
    external constant, or enum.)
+
+
+
+Bormann                    Expires 2 July 2025                  [Page 3]
+
+Internet-Draft           EDN external references           December 2024
+
 
    For the example in Figure 1, such a CDDL model could have at least
    the content shown in Figure 2:
@@ -196,6 +219,13 @@ Implementation
    (cbor-diag-e uses cddlc [cddlc] internally, so it must be in PATH.)
    The provided
 
+
+
+Bormann                    Expires 2 July 2025                  [Page 4]
+
+Internet-Draft           EDN external references           December 2024
+
+
    Use of this extension has two prerequisites:
 
    1.  Opt-in to the application extension e, which in the cbor-diag
@@ -238,6 +268,19 @@ Provisional use
    include with the CDDL definitions needed.)
 
 3.  The ref'' application extension: importing from EDN
+
+
+
+
+
+
+
+
+
+Bormann                    Expires 2 July 2025                  [Page 5]
+
+Internet-Draft           EDN external references           December 2024
+
 
 Problem
 
@@ -286,6 +329,15 @@ Solution
       |  parse the literal text as a URI and, if that fails, interprets
       |  it as a file name.)
 
+
+
+
+
+Bormann                    Expires 2 July 2025                  [Page 6]
+
+Internet-Draft           EDN external references           December 2024
+
+
    Note that a ref'' application-oriented literal can only be used for a
    single CBOR data item; the extension point provided by EDN does not
    work for splicing in CBOR sequences.
@@ -333,6 +385,15 @@ Provisional use
    Diagnostic Notation Application-extension Identifiers registry
    [IANA.cbor-diagnostic-notation]:
 
+
+
+
+
+Bormann                    Expires 2 July 2025                  [Page 7]
+
+Internet-Draft           EDN external references           December 2024
+
+
          +==================================+===================+
          | Application-extension Identifier | Description       |
          +==================================+===================+
@@ -371,15 +432,23 @@ Provisional use
    [I-D.ietf-cbor-edn-literals]
               Bormann, C., "CBOR Extended Diagnostic Notation (EDN)",
               Work in Progress, Internet-Draft, draft-ietf-cbor-edn-
-              literals-14, 9 December 2024,
+              literals-17, 12 May 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-cbor-
-              edn-literals-14>.
+              edn-literals-17>.
 
    [RFC8610]  Birkholz, H., Vigano, C., and C. Bormann, "Concise Data
               Definition Language (CDDL): A Notational Convention to
               Express Concise Binary Object Representation (CBOR) and
               JSON Data Structures", RFC 8610, DOI 10.17487/RFC8610,
               June 2019, <https://www.rfc-editor.org/rfc/rfc8610>.
+
+
+
+
+Bormann                    Expires 2 July 2025                  [Page 8]
+
+Internet-Draft           EDN external references           December 2024
+
 
    [RFC8949]  Bormann, C. and P. Hoffman, "Concise Binary Object
               Representation (CBOR)", STD 94, RFC 8949,
@@ -406,28 +475,36 @@ Provisional use
    [I-D.bormann-cbor-draft-numbers]
               Bormann, C., "Managing CBOR codepoints in Internet-
               Drafts", Work in Progress, Internet-Draft, draft-bormann-
-              cbor-draft-numbers-04, 29 August 2024,
+              cbor-draft-numbers-05, 1 March 2025,
               <https://datatracker.ietf.org/doc/html/draft-bormann-cbor-
-              draft-numbers-04>.
+              draft-numbers-05>.
 
    [I-D.bormann-t2trg-deref-id]
               Bormann, C. and C. Amsüss, "The "dereferenceable
               identifier" pattern", Work in Progress, Internet-Draft,
-              draft-bormann-t2trg-deref-id-04, 1 September 2024,
+              draft-bormann-t2trg-deref-id-05, 3 March 2025,
               <https://datatracker.ietf.org/doc/html/draft-bormann-
-              t2trg-deref-id-04>.
+              t2trg-deref-id-05>.
 
    [I-D.ietf-ace-oscore-gm-admin]
               Tiloca, M., Höglund, R., Van der Stok, P., and F.
               Palombini, "Admin Interface for the OSCORE Group Manager",
               Work in Progress, Internet-Draft, draft-ietf-ace-oscore-
-              gm-admin-12, 8 July 2024,
+              gm-admin-13, 8 January 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-ace-
-              oscore-gm-admin-12>.
+              oscore-gm-admin-13>.
 
 Acknowledgements
 
    TBD
+
+
+
+
+Bormann                    Expires 2 July 2025                  [Page 9]
+
+Internet-Draft           EDN external references           December 2024
+
 
 Author's Address
 
@@ -438,3 +515,46 @@ Author's Address
    Germany
    Phone: +49-421-218-63921
    Email: cabo@tzi.org
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bormann                    Expires 2 July 2025                 [Page 10]
