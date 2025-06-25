@@ -1,6 +1,8 @@
+<!-- regenerate: on (set to off if you edit this file) -->
+
 # External References to Values in CBOR Diagnostic Notation (EDN)
 
-This is the working area for the IETF [CBOR Working Group](https://datatracker.ietf.org/wg/cbor/documents/) Internet-Draft, "External References to Values in CBOR Diagnostic Notation (EDN)".
+This is the working area for the IETF [CBOR Working Group](https://datatracker.ietf.org/group/cbor/documents/) Internet-Draft, "External References to Values in CBOR Diagnostic Notation (EDN)".
 
 * [Editor's Copy](https://cbor-wg.github.io/edn-e-ref/#go.draft-ietf-cbor-edn-e-ref.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-cbor-edn-e-ref)
