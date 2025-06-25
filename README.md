@@ -9,6 +9,7 @@ This is the working area for the IETF [CBOR Working Group](https://datatracker.i
 * [Working Group Draft](https://datatracker.ietf.org/doc/html/draft-ietf-cbor-edn-e-ref)
 * [Compare Editor's Copy to Working Group Draft](https://cbor-wg.github.io/edn-e-ref/#go.draft-ietf-cbor-edn-e-ref.diff)
 
+[Access Branches](https://cbor-wg.github.io/edn-e-ref/)
 
 ## Contributing
 
