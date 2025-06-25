@@ -317,6 +317,15 @@ treated as an error.
 Documents that want to use the application extension `ref''` now can
 use boilerplate similar to that given above for `e''`.
 
+# ABNF
+
+This document extends the Augmented Backus Naur Form (ABNF) {{!RFC5234}}
+grammar of EDN for the two new app-string definitions in this document.
+
+~~~ abnf
+{::include edn-e-ref.abnf}
+~~~
+{: #abnf-grammar "New app-string ABNF definitions" sourcecode-name="edn-e-ref.abnf"}
 
 IANA Considerations
 ==================
