@@ -5,7 +5,7 @@ title: >
   External References to Values in CBOR Diagnostic Notation (EDN)
 abbrev: EDN external references
 docname: draft-ietf-cbor-edn-e-ref-latest
-date: 2024-12-29
+date: 2025-07-02
 keyword:
   - CBOR numbers
   - References to CDDL numbers
