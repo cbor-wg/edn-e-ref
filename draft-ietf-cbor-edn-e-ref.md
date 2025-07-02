@@ -37,6 +37,7 @@ normative:
   I-D.ietf-cbor-edn-literals: edn
 informative:
   I-D.bormann-cbor-draft-numbers: numbers
+  I-D.bormann-cbor-edn-mapkey: mapkey
   cddlc:
     title: CDDL conversion utilities
     target: https://github.com/cabo/cddlc
@@ -164,6 +165,13 @@ interchanged for this example.
 Note that the application-oriented literal does not itself define
 where the CDDL definitions it uses come from.  This information needs
 to come from the context of the example.
+
+Note also that the CDDL names for one EDN instance all come from a
+single name space.
+{{-mapkey}} proposes access to CDDL names where the name space in use is
+specific to the data item the reference has as immediate context; this
+provides a more complex, but also more powerful approach that can
+handle different constant values for the same name in different contexts.
 
 ## Implementation
 {:unnumbered removeinrfc}
