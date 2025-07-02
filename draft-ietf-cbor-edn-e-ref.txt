@@ -4,8 +4,8 @@
 
 Network Working Group                                         C. Bormann
 Internet-Draft                                    Universität Bremen TZI
-Intended status: Informational                          29 December 2024
-Expires: 2 July 2025
+Intended status: Informational                               2 July 2025
+Expires: 3 January 2026
 
 
     External References to Values in CBOR Diagnostic Notation (EDN)
@@ -53,9 +53,9 @@ About This Document
 
 
 
-Bormann                    Expires 2 July 2025                  [Page 1]
+Bormann                  Expires 3 January 2026                 [Page 1]
 
-Internet-Draft           EDN external references           December 2024
+Internet-Draft           EDN external references               July 2025
 
 
 Status of This Memo
@@ -73,11 +73,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 2 July 2025.
+   This Internet-Draft will expire on 3 January 2026.
 
 Copyright Notice
 
-   Copyright (c) 2024 IETF Trust and the persons identified as the
+   Copyright (c) 2025 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -97,7 +97,7 @@ Table of Contents
      Solution  . . . . . . . . . . . . . . . . . . . . . . . . . . .   3
      Implementation  . . . . . . . . . . . . . . . . . . . . . . . .   4
      Provisional use . . . . . . . . . . . . . . . . . . . . . . . .   5
-   3.  The ref'' application extension: importing from EDN . . . . .   5
+   3.  The ref'' application extension: importing from EDN . . . . .   6
      Problem . . . . . . . . . . . . . . . . . . . . . . . . . . . .   6
      Solution  . . . . . . . . . . . . . . . . . . . . . . . . . . .   6
      Implementation  . . . . . . . . . . . . . . . . . . . . . . . .   7
@@ -109,13 +109,13 @@ Table of Contents
 
 
 
-Bormann                    Expires 2 July 2025                  [Page 2]
+Bormann                  Expires 3 January 2026                 [Page 2]
 
-Internet-Draft           EDN external references           December 2024
+Internet-Draft           EDN external references               July 2025
 
 
      6.2.  Informative References  . . . . . . . . . . . . . . . . .   9
-   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .   9
+   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  10
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  10
 
 1.  Introduction
@@ -165,9 +165,9 @@ Solution
 
 
 
-Bormann                    Expires 2 July 2025                  [Page 3]
+Bormann                  Expires 3 January 2026                 [Page 3]
 
-Internet-Draft           EDN external references           December 2024
+Internet-Draft           EDN external references               July 2025
 
 
    For the example in Figure 1, such a CDDL model could have at least
@@ -206,9 +206,25 @@ Internet-Draft           EDN external references           December 2024
    where the CDDL definitions it uses come from.  This information needs
    to come from the context of the example.
 
+   Note also that the CDDL names for one EDN instance all come from a
+   single name space.  [I-D.bormann-cbor-edn-mapkey] proposes access to
+   CDDL names where the name space in use is specific to the data item
+   the reference has as immediate context; this provides a more complex,
+   but also more powerful approach that can handle different constant
+   values for the same name in different contexts.
+
 Implementation
 
    This section is to be removed before publishing as an RFC.
+
+
+
+
+
+Bormann                  Expires 3 January 2026                 [Page 4]
+
+Internet-Draft           EDN external references               July 2025
+
 
    The e'' application extension is now implemented in the cbor-diag
    tools [cbor-diag], by the cbor-diag-e gem [cbor-diag-e], which can be
@@ -217,14 +233,6 @@ Implementation
     gem install cbor-diag-e cddlc
 
    (cbor-diag-e uses cddlc [cddlc] internally, so it must be in PATH.)
-   The provided
-
-
-
-Bormann                    Expires 2 July 2025                  [Page 4]
-
-Internet-Draft           EDN external references           December 2024
-
 
    Use of this extension has two prerequisites:
 
@@ -267,20 +275,14 @@ Provisional use
    (Choose 0815, group_mode and 33 along the lines of the figure you
    include with the CDDL definitions needed.)
 
-3.  The ref'' application extension: importing from EDN
 
 
-
-
-
-
-
-
-
-Bormann                    Expires 2 July 2025                  [Page 5]
+Bormann                  Expires 3 January 2026                 [Page 5]
 
-Internet-Draft           EDN external references           December 2024
+Internet-Draft           EDN external references               July 2025
 
+
+3.  The ref'' application extension: importing from EDN
 
 Problem
 
@@ -331,11 +333,9 @@ Solution
 
 
 
-
-
-Bormann                    Expires 2 July 2025                  [Page 6]
+Bormann                  Expires 3 January 2026                 [Page 6]
 
-Internet-Draft           EDN external references           December 2024
+Internet-Draft           EDN external references               July 2025
 
 
    Note that a ref'' application-oriented literal can only be used for a
@@ -389,9 +389,9 @@ Provisional use
 
 
 
-Bormann                    Expires 2 July 2025                  [Page 7]
+Bormann                  Expires 3 January 2026                 [Page 7]
 
-Internet-Draft           EDN external references           December 2024
+Internet-Draft           EDN external references               July 2025
 
 
          +==================================+===================+
@@ -445,9 +445,9 @@ Internet-Draft           EDN external references           December 2024
 
 
 
-Bormann                    Expires 2 July 2025                  [Page 8]
+Bormann                  Expires 3 January 2026                 [Page 8]
 
-Internet-Draft           EDN external references           December 2024
+Internet-Draft           EDN external references               July 2025
 
 
    [RFC8949]  Bormann, C. and P. Hoffman, "Concise Binary Object
@@ -479,12 +479,32 @@ Internet-Draft           EDN external references           December 2024
               <https://datatracker.ietf.org/doc/html/draft-bormann-cbor-
               draft-numbers-05>.
 
+   [I-D.bormann-cbor-edn-mapkey]
+              Bormann, C. and C. Amsüss, "CBOR: Generating Numeric Map
+              Labels from Textual EDN", Work in Progress, Internet-
+              Draft, draft-bormann-cbor-edn-mapkey-00, 29 June 2025,
+              <https://datatracker.ietf.org/doc/html/draft-bormann-cbor-
+              edn-mapkey-00>.
+
    [I-D.bormann-t2trg-deref-id]
               Bormann, C. and C. Amsüss, "The "dereferenceable
               identifier" pattern", Work in Progress, Internet-Draft,
               draft-bormann-t2trg-deref-id-05, 3 March 2025,
               <https://datatracker.ietf.org/doc/html/draft-bormann-
               t2trg-deref-id-05>.
+
+
+
+
+
+
+
+
+
+Bormann                  Expires 3 January 2026                 [Page 9]
+
+Internet-Draft           EDN external references               July 2025
+
 
    [I-D.ietf-ace-oscore-gm-admin]
               Tiloca, M., Höglund, R., Van der Stok, P., and F.
@@ -497,14 +517,6 @@ Internet-Draft           EDN external references           December 2024
 Acknowledgements
 
    TBD
-
-
-
-
-Bormann                    Expires 2 July 2025                  [Page 9]
-
-Internet-Draft           EDN external references           December 2024
-
 
 Author's Address
 
@@ -545,16 +557,4 @@ Author's Address
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-Bormann                    Expires 2 July 2025                 [Page 10]
+Bormann                  Expires 3 January 2026                [Page 10]
