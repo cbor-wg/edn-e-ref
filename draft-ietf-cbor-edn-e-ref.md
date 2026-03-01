@@ -5,7 +5,7 @@ title: >
   External References to Values in CBOR Diagnostic Notation (EDN)
 abbrev: EDN external references
 docname: draft-ietf-cbor-edn-e-ref-latest
-date: 2025-07-02
+date: 2026-03-01
 keyword:
   - CBOR numbers
   - References to CDDL numbers
@@ -131,9 +131,9 @@ For the example in {{fig-incorrect}}, such a CDDL model could have at
 least the content shown in {{fig-cddl}}:
 
 ~~~ cddl
-group_mode = 33
-gp_enc_alg = 34
-hkdf = 31
+hkdf = -1
+group_mode = -3
+gp_enc_alg = -4
 HMAC-256-256 = 5
 AES-CCM-16-64-128 = 10
 ~~~
@@ -156,9 +156,10 @@ title="Example updated to use e'constantname' for registered constants"}
 
 <!--
 CBOR_DIAG_CDDL=sourcecode/cddl/cddl-model-defining-constan.cddl diag2diag.rb -ae
+CBOR_DIAG_CDDL=sourcecode/cddl/solution.cddl diag2diag.rb -ae
  -->
 
-This example is equivalent to notating `{33: true, 34: 10, 31: 5}`,
+This example is equivalent to notating `{-3: true, -4: 10, -1: 5}`,
 which expresses the concise 10-byte data item that will actually be
 interchanged for this example.
 
